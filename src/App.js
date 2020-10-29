@@ -27,11 +27,11 @@ export default class App extends React.Component
       <div className="App">
         <Form getData={this.getData}></Form>
 
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
 
         {
           console.log("App.js 35")
