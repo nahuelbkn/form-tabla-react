@@ -1,25 +1,46 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Form from './Components/Form';
+import Table from "./Components/Table"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export default class App extends React.Component
+{
+  constructor()
+  {
+    super();
+    this.state = {
+      arrayPeople: []
+    }
+  }
+
+  getData = (objPerson)=>{
+    const newArray = this.state.arrayPeople;
+    newArray.push(objPerson);
+    this.setState({arrayPeople: newArray});
+    console.log(this.state.arrayPeople);
+  }
+
+  render()
+  {
+    return (
+      <div className="App">
+        <Form getData={this.getData}></Form>
+
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+
+        {
+          console.log("App.js 35")
+        }
+        {
+          this.state.arrayPeople.length > 0 ? <Table arrayPeople={this.state.arrayPeople}></Table> : <div>Sin elementos</div>
+        }
+      </div>
+    )
+  }
 }
 
-export default App;
